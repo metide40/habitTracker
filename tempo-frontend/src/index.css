@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #faf8f5;
+  --color-surface: #ffffff;
+  --color-border: #ece7df;
+  --color-foreground: #1c1917;
+  --color-muted: #78716c;
+  --color-primary: #5b4bdb;
+  --color-primary-hover: #4a3bc4;
+  --color-primary-soft: rgba(91, 75, 219, 0.1);
+  --color-success: #3f9b6b;
+  --color-success-soft: rgba(63, 155, 107, 0.12);
+  --color-sage: #7fa88b;
+  --color-coral: #e27d60;
+  --color-amber: #e3a63b;
+  --color-sky: #6fa8dc;
+  --color-rose: #d4728c;
+}
+
+.dark {
+  --color-background: #0f0e0d;
+  --color-surface: #181614;
+  --color-border: #2a2623;
+  --color-foreground: #f5f2ee;
+  --color-muted: #a8a29e;
+  --color-primary: #6b5ce6;
+  --color-primary-hover: #7d6ef0;
+  --color-primary-soft: rgba(107, 92, 230, 0.15);
+  --color-success: #4aad7a;
+  --color-success-soft: rgba(74, 173, 122, 0.15);
+  --color-sage: #8fb89a;
+  --color-coral: #e89178;
+  --color-amber: #ebba55;
+  --color-sky: #82b8e4;
+  --color-rose: #de8aa0;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  #root {
+    min-height: 100vh;
+  }
+  :focus-visible {
+    outline: 2px solid rgba(91, 75, 219, 0.4);
+    outline-offset: 1px;
+  }
+  aside :focus-visible, nav :focus-visible {
+    outline-width: 1.5px;
+    outline-offset: -2px;
+    border-radius: 8px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .text-meta {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-muted);
+    font-weight: 500;
+  }
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+
+.habit-done .habit-name {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
